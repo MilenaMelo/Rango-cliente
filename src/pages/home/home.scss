@@ -1,0 +1,124 @@
+page-home {
+
+}
+.button-assertive {
+    background: #FF473A;
+    height: 40px;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+.button-light {
+    background: #FCFCFC;
+    height: 35px;
+    color: #988B8B;
+    fill: #988B8B;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.11)
+}
+img {
+    max-width: 40%;
+    margin: 20px;
+}
+.item-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bar-button-menutoggle-ios {
+    color: black;
+}
+.header-ios .toolbar-ios:last-child .toolbar-background-ios {
+    border-width: none;
+    border-color: #fff;
+    background: #fff;
+}
+.toolbar {
+    flex-direction: row-reverse;
+}
+.item-input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+.list-ios {
+   margin-bottom: 20px;
+   margin-top: 20px;
+
+}
+input[type=text], .text-input-md {   
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+   // box-shadow: 1px 1px 2px #333333;    
+   // -moz-box-shadow: 1px 1px 2px #333333;
+   // -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #fff; 
+    border:1px solid #c8c7cc;
+    height: 34px;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0px;
+  
+}
+.text-input-md {
+    width: calc(100% - 8px);
+}
+.item-input, .item-inner {
+    border: none !important;
+}
+.list {
+    margin: 20px 0px;
+    margin-left: 20px;
+}
+.item-ios, .list-ios .item-block .item-inner {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.item-label-stacked .text-input-md, .item-label-floating .text-input-md, .label-md[stacked], .label-md[floating] {
+    margin: 0px;
+}
+.text-input-ios {
+    margin: 0;
+}
+.button-block {
+    width: 98%;
+}
+.button-assertive {
+    margin-bottom: 10px;
+}
+.label-ios[stacked], .label-ios-primary {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.toolbar-title-md {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 60px;
+}
+.item-md, .item-md.item-block .item-inner {
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+.toolbar-background-md {
+    background: #fff;
+    border-color: #fff;
+}
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+    position: fixed !important;
+}
+.brandName, .toolbar-title-md {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: black;
+}
+.inputList {
+    margin-left: 0px;
+}
