@@ -1,5 +1,7 @@
 {
   "name": "AppRango",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

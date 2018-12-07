@@ -9,13 +9,17 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
+import { BuscaPage } from '../pages/busca/busca';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    BuscaPage
   ],
   imports: [
     BrowserModule,
@@ -26,12 +30,14 @@ import { LoginPage } from '../pages/login/login';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    BuscaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Geolocation
   ]
 })
 export class AppModule {}

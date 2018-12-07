@@ -2,38 +2,37 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
 
 <ion-header>
-  <ion-navbar >
-    <ion-title>RanGo</ion-title>
-    <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-  </ion-navbar>
+    <ion-navbar>
+        <img class="img-back" src="assets/imgs/back.png">      
+        <div class="brandName">RanGo</div>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding class="padding">
 
-    <div class="list card">
-      
+    <div class="list card"> 
         <div class="item-body">
-          <img class="full-image" src="https://cdn0.iconfinder.com/data/icons/yummy-pc/100/yummy-pc-43-512.png">
+          <img class="full-image" src="assets/imgs/usuario.png">
         </div>
-
     </div>  
 
-    <ion-list class="inputList">
-      
-      <ion-item>
-         <ion-input type="email" placeholder="Email"></ion-input>
-       </ion-item>
-      
-        <ion-item>
-          <ion-input type="password" placeholder="Senha"></ion-input>
-        </ion-item>
-           
-    </ion-list>
+    <div class="container-inputs">
 
-      <button class="button button-block button-assertive">
-          Entrar
-      </button>
-
+        <ion-list class="inputList">  
+          <ion-item>
+            <ion-input type="email" placeholder="Email"></ion-input>
+          </ion-item>
+          <div class="brandName-login">Esqueceu a senha?</div>
+            <ion-item>
+              <ion-input type="password" placeholder="Senha"></ion-input>
+            </ion-item>     
+        </ion-list>
+          <button class="button button-block button-assertive">
+              Entrar
+          </button>
+          <div class="brandName-login-2">Não tem uma conta? Cadastre-se AQUI > CADASTRAR</div>  
+    </div>
 </ion-content>

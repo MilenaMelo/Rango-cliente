@@ -1,0 +1,21 @@
+page-busca {
+    #map {
+    
+        height: 100%; 
+        width: 100%; 
+        position:absolute; 
+        top: 0; 
+        left: 0; 
+        z-index: 0; 
+      
+    }
+    .inputBusca {
+        margin-top: 50px;
+        z-index: 100;
+        position: relative;
+        position: relative; 
+        background: none;
+        opacity: .45; /* Set the opacity for a slightly transparent Google Form */ 
+        color: white;
+    }
+}
