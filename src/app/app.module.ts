@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { BuscaPage } from '../pages/busca/busca';
+import { ProdutosPage } from '../pages/produtos/produtos';
 import { Geolocation } from '@ionic-native/geolocation';
 
 
@@ -19,7 +20,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     ListPage,
     LoginPage,
-    BuscaPage
+    BuscaPage,
+    ProdutosPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage,
     ListPage,
     LoginPage,
-    BuscaPage
+    BuscaPage,
+    ProdutosPage
   ],
   providers: [
     StatusBar,
