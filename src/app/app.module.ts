@@ -10,10 +10,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 
-import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
-
-const config: SocketIoConfig = { url: "http://localhost:3001", options: {} }
-
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +20,6 @@ const config: SocketIoConfig = { url: "http://localhost:3001", options: {} }
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
