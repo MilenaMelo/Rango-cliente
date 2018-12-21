@@ -12,7 +12,9 @@ import { LoginPage } from '../pages/login/login';
 import { BuscaPage } from '../pages/busca/busca';
 import { ProdutosPage } from '../pages/produtos/produtos';
 import { Geolocation } from '@ionic-native/geolocation';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 
+const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { Geolocation } from '@ionic-native/geolocation';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
