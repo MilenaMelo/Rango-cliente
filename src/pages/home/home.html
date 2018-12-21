@@ -27,27 +27,31 @@
   
           <ion-list class="inputList">
             <ion-item>
-              <ion-input type="text" placeholder="Nome"></ion-input>
-            </ion-item>
-            
-            <ion-item>
-              <ion-input type="text" placeholder="CPF"></ion-input>
+              <ion-input type="text" placeholder="Nome" [(ngModel)]="nome"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="email" placeholder="Email"></ion-input>
+              <ion-input type="text" placeholder="Sobremome" [(ngModel)]="sobrenome"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-input type="text" placeholder="CPF" [(ngModel)]="cpf"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
             </ion-item>
             
               <ion-item>
-                <ion-input type="password" placeholder="Senha"></ion-input>
+                <ion-input type="password" placeholder="Senha" [(ngModel)]="senha1"></ion-input>
               </ion-item>
             
               <ion-item>
-                <ion-input type="password" placeholder="Confirmar Senha"></ion-input>
+                <ion-input type="password" placeholder="Confirmar Senha" [(ngModel)]="senha2"></ion-input>
               </ion-item> 
           </ion-list>
           
-          <button [navPush]="loginPage" class="button button-block button-assertive" >
+          <button class="button button-block button-assertive" (click)="clickCadastrar()">
               Cadastrar
           </button>
       </div>

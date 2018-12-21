@@ -103,6 +103,8 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng_socket_io__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -115,18 +117,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl) {
+    function HomePage(navCtrl, socket, toastCtrl) {
+        var _this = this;
         this.navCtrl = navCtrl;
+        this.socket = socket;
+        this.toastCtrl = toastCtrl;
+        this.cpf = '';
+        this.nome = '';
+        this.sobrenome = '';
+        this.email = '';
+        this.senha1 = '';
+        this.senha2 = '';
         this.loginPage = __WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */];
+        socket.on('retorno-cadastro-cliente', function (retorno) {
+            if (retorno == 0) {
+                _this.showToast('Cadastro realizado com sucesso.');
+                navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
+            }
+            else if (retorno == 1) {
+                _this.showToast('Cadastro não realizado. CPF já cadastrado no sistema.');
+            }
+            else if (retorno == 2) {
+                _this.showToast('Cadastro não realizado. Email já cadastrado no sistema.');
+            }
+        });
     }
+    HomePage.prototype.clickCadastrar = function () {
+        if (this.senha1 !== this.senha2) {
+            this.showToast('As senhas inseridas não coincidem.');
+            return;
+        }
+        this.socket.emit('cadastro-cliente', {
+            cpf: this.cpf,
+            nome: this.nome,
+            sobrenome: this.sobrenome,
+            email: this.email,
+            senha: this.senha1
+        });
+    };
+    HomePage.prototype.showToast = function (msg) {
+        this.toastCtrl.create({
+            message: msg,
+            duration: 3000,
+        }).present();
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Lucas Levi\Desktop\Rango\Rango-cliente\src\pages\home\home.html"*/'<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">\n\n\n\n<ion-header>\n\n    <ion-navbar>\n\n        <img class="img-back" src="assets/imgs/back.png">      \n\n        <div class="brandName">RanGo</div>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n          </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="padding">\n\n\n\n    <div class="list card">\n\n      \n\n        <div class="item-body">\n\n          <img class="full-image" src="assets/imgs/usuario.png">\n\n        </div>\n\n\n\n    </div>  \n\n    <div class="container-inputs">\n\n          <button class="button button-block button-light" >\n\n            <img class="img-gmail" src="assets/imgs/gmail.png" alt="gmail">\n\n            <div class="title-button"> Cadastrar com o GOOGLE </div>\n\n          </button>\n\n  \n\n          <ion-list class="inputList">\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Nome"></ion-input>\n\n            </ion-item>\n\n            \n\n            <ion-item>\n\n              <ion-input type="text" placeholder="CPF"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n              <ion-input type="email" placeholder="Email"></ion-input>\n\n            </ion-item>\n\n            \n\n              <ion-item>\n\n                <ion-input type="password" placeholder="Senha"></ion-input>\n\n              </ion-item>\n\n            \n\n              <ion-item>\n\n                <ion-input type="password" placeholder="Confirmar Senha"></ion-input>\n\n              </ion-item> \n\n          </ion-list>\n\n          \n\n          <button [navPush]="loginPage" class="button button-block button-assertive" >\n\n              Cadastrar\n\n          </button>\n\n      </div>\n\n       \n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Lucas Levi\Desktop\Rango\Rango-cliente\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Lucas Levi\Desktop\Rango\Rango-cliente\src\pages\home\home.html"*/'<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">\n\n\n\n<ion-header>\n\n    <ion-navbar>\n\n        <img class="img-back" src="assets/imgs/back.png">      \n\n        <div class="brandName">RanGo</div>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n          </button>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding class="padding">\n\n\n\n    <div class="list card">\n\n      \n\n        <div class="item-body">\n\n          <img class="full-image" src="assets/imgs/usuario.png">\n\n        </div>\n\n\n\n    </div>  \n\n    <div class="container-inputs">\n\n          <button class="button button-block button-light" >\n\n            <img class="img-gmail" src="assets/imgs/gmail.png" alt="gmail">\n\n            <div class="title-button"> Cadastrar com o GOOGLE </div>\n\n          </button>\n\n  \n\n          <ion-list class="inputList">\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Nome" [(ngModel)]="nome"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n              <ion-input type="text" placeholder="Sobremome" [(ngModel)]="sobrenome"></ion-input>\n\n            </ion-item>\n\n            \n\n            <ion-item>\n\n              <ion-input type="text" placeholder="CPF" [(ngModel)]="cpf"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n              <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>\n\n            </ion-item>\n\n            \n\n              <ion-item>\n\n                <ion-input type="password" placeholder="Senha" [(ngModel)]="senha1"></ion-input>\n\n              </ion-item>\n\n            \n\n              <ion-item>\n\n                <ion-input type="password" placeholder="Confirmar Senha" [(ngModel)]="senha2"></ion-input>\n\n              </ion-item> \n\n          </ion-list>\n\n          \n\n          <button class="button button-block button-assertive" (click)="clickCadastrar()">\n\n              Cadastrar\n\n          </button>\n\n      </div>\n\n       \n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Lucas Levi\Desktop\Rango\Rango-cliente\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _c || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
