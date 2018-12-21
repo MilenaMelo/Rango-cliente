@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Socket } from 'ng-socket-io';
+import { BuscaPage } from '../busca/busca';
 
 /**
  * Generated class for the LoginPage page.
@@ -22,7 +23,7 @@ export class LoginPage {
   constructor(private navCtrl: NavController, private socket: Socket, private toastCtrl: ToastController) {
     socket.on('retorno-login-cliente', (retorno) => {
       if (retorno === 0) { // sucesso
-        navCtrl.push('BuscaPage');
+        navCtrl.push(BuscaPage);
       } else if (retorno === 1) { // email não cadastrado
         this.showToast('Email não cadastrado no sistema.');
       } else if (retorno === 2) { // senha incorreta
