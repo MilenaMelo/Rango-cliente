@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Socket } from 'ng-socket-io';
 
 /**
  * Generated class for the ProdutosPage page.
@@ -15,11 +16,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProdutosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  produtos = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private socket: Socket) {
+    socket.on('retorno-pesquisa-produto', (produtos) => {
+      this.produtos = produtos;
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProdutosPage');
+  }
+
+  pesquisar(evento: any) {
+    var busca = evento.target.value;
+
+    if (busca && busca.trim() != '') {
+      this.socket.emit('pesquisa-produto', { textoPesquisa: busca });
+    }
   }
 
 }

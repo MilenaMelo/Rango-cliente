@@ -18,9 +18,27 @@
 
 
 <ion-content padding>
+  <ion-searchbar (ionInput)="pesquisar($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let produto of produtos">
+      <button class="cards-input-1">
+          <img src="assets/imgs/produtos.png"/>
+          <div class="texts-cards">
+            <h5 class="textCard-title">
+                {{ produto.nome }}
+            </h5>
+            <h6 class="textCard">
+              Local:  {{ produto.nomeEstabelecimento }}<br/>
+              Preço: {{ produto.preco }}
+            </h6>
+          </div>
+        </button>
+    </ion-item>
+  </ion-list>
+  <!--
       <ion-list class="inputList">  
         <ion-item class="inputBusca">
-              <ion-input type="text" placeholder="Nome"></ion-input>
+              <ion-input type="text" placeholder="Nome" [(ngModel)]="textoPesquisa"></ion-input>
         </ion-item>  
         <div class="cards"> 
           <button class="cards-input-1">
@@ -75,5 +93,5 @@
           </button>
         </div>
     </ion-list>
-
+-->
 </ion-content>
